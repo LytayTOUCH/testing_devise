@@ -20,6 +20,9 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: <%= ENV['host']%>
+  username: <%= ENV['username']%>
+  password: <%= ENV['password']%>
 
 development:
   <<: *default
@@ -81,5 +84,5 @@ test:
 production:
   <<: *default
   database: testing_devise_production
-  username: testing_devise
-  password: <%= ENV['TESTING_DEVISE_DATABASE_PASSWORD'] %>
+  username: <%= ENV['username']%>
+  password: <%= ENV['password']%>
