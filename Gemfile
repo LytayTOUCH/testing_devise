@@ -50,5 +50,6 @@ group :development do
   gem 'quiet_assets'
   gem 'guard-rspec', require: false
   gem "better_errors"
+  gem 'pry-rails'
 end
 
