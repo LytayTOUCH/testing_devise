@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  root 'home#index'
   devise_for :administrators
   devise_scope :administrator do
-    get 'administartor/login' => 'devise/sessions#new'
+    get 'administrator/login' => 'devise/sessions#new'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
