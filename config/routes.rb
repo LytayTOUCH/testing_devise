@@ -6,14 +6,17 @@ Rails.application.routes.draw do
     # delete 'administrator/logout' => 'devise/sessions#destroy', as: :administrator_logout
 
     # session handling
-    get     '/login'  => 'devise/sessions#new',     as: 'new_administrator_session'
-    post    '/login'  => 'devise/sessions#create',  as: 'administrator_session'
-    delete  '/logout' => 'devise/sessions#destroy', as: 'destroy_administrator_session'
+    scope '/administrator' do
 
-    # joining
-    get   '/join' => 'devise/registrations#new',    as: 'new_administrator_registration'
-    post  '/join' => 'devise/registrations#create', as: 'administrator_registration'
+      get     '/login'  => 'devise/sessions#new',     as: 'new_administrator_session'
+      post    '/login'  => 'devise/sessions#create',  as: 'administrator_session'
+      delete  '/logout' => 'devise/sessions#destroy', as: 'destroy_administrator_session'
 
+      # joining
+      get   '/join' => 'devise/registrations#new',    as: 'new_administrator_registration'
+      post  '/join' => 'devise/registrations#create', as: 'administrator_registration'
+      
+    end
     scope '/account' do
       # password reset
       get   '/reset-password'        => 'devise/passwords#new',    as: 'new_administrator_password'
